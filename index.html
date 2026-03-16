@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Chelsy rich | Guarantor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #0d121c 0%, #080b12 50%, #0d121c 100%);
+      --neon-blue: #00c6ff;
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+      --glass-bg: rgba(255, 255, 255, 0.04);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --accent: #007aff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-gradient);
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 15px; 
+      overflow-x: hidden;
+    }
+
+    
+    body::before {
+      content: "";
+      position: fixed;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(0, 198, 255, 0.12) 0%, transparent 70%);
+      top: -5%; left: -5%;
+      filter: blur(80px);
+      z-index: -1;
+      animation: drift 15s infinite alternate ease-in-out;
+    }
+
+    @keyframes drift { from { transform: translate(0,0); } to { transform: translate(80px, 40px); } }
+
+    .container { 
+      width: 100%; 
+      max-width: 480px; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 18px; 
+      z-index: 1; 
+    }
+
+    
+    .lang-switcher {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: -10px;
+    }
+    .lang-btn {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--glass-border);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .lang-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 0 10px rgba(0, 122, 255, 0.3);
+    }
+
+   
+    .glass-panel {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px; 
+      padding: 22px; 
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+    .profile-header { text-align: center; }
+    .avatar-wrapper {
+      position: relative;
+      width: 120px; 
+      height: 120px;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .avatar-border {
+      position: absolute;
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      border: 2px dashed var(--neon-blue); 
+      animation: rotateBorder 12s linear infinite;
+      filter: drop-shadow(0 0 5px var(--neon-blue));
+    }
+    @keyframes rotateBorder { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .avatar-image {
+      width: 105px; height: 105px;
+      border-radius: 50%;
+      object-fit: cover;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 1.6rem; 
+      font-weight: 800;
+      background: linear-gradient(to right, #fff, #a5f3fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 4px;
+    }
+    .username { color: var(--neon-blue); font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; display: block; }
+    .description { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; }
+
+   
+    .metrics { display: flex; gap: 12px; }
+    .metric-card {
+      flex: 1;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 12px;
+      transition: 0.3s;
+    }
+    .m-val { display: block; font-size: 1.2rem; font-weight: 800; color: #fff; }
+    .m-lab { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+    
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      text-decoration: none;
+      color: #fff;
+      margin-bottom: 10px;
+      transition: 0.3s;
+      font-size: 0.9rem;
+    }
+    .link-item:hover { transform: translateX(4px); background: rgba(255,255,255,0.05); }
+
+   
+    .copy-box {
+      cursor: pointer;
+      background: rgba(0,0,0,0.2);
+      padding: 15px;
+      border-radius: 16px;
+      border: 1px solid var(--glass-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+    }
+    .wallet-addr { font-family: monospace; font-weight: 700; color: var(--neon-blue); font-size: 1rem; }
+    .copy-hint { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 6px; }
+
+    #copy-toast {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      background: var(--neon-blue); color: #000; padding: 8px 20px;
+      border-radius: 50px; font-weight: 700; font-size: 0.8rem;
+      opacity: 0; transition: 0.3s; z-index: 1000; pointer-events: none;
+    }
+
+    h2 { font-size: 1.1rem; margin-bottom: 12px; }
+
+    .step-item { display: flex; gap: 12px; margin-bottom: 15px; }
+    .step-num { 
+      width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--neon-blue); 
+      display: flex; align-items: center; justify-content: center; font-weight: 800; 
+      color: var(--neon-blue); flex-shrink: 0; font-size: 0.8rem;
+    }
+    .step-text h3 { font-size: 0.95rem; margin-bottom: 3px; }
+    .step-text p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+
+  </style>
+</head>
+<body>
+
+  <div id="copy-toast">Copied!</div>
+
+  <div class="container">
+    
+    <div class="lang-switcher" id="langSwitch">
+      <button class="lang-btn active" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <div class="glass-panel profile-header">
+      <div class="avatar-wrapper">
+        <div class="avatar-border"></div>
+        <img src="ava.jpg" class="avatar-image" alt="Avatar">
+      </div>
+      <h1 data-i18n="title">𝑪𝒉𝒆𝒍𝒔𝒚 𝒓𝒊𝒄𝒉</h1>
+      <span class="username">@SuckChelsy</span>
+      <p class="description" data-i18n="subtitle">Гарант сделок • Низкая комиссия • Безопасные сделки</p>
+      
+      <div class="metrics">
+        <div class="metric-card">
+          <span class="m-val">6%</span>
+          <span class="m-lab" data-i18n="commission">комиссия</span>
+        </div>
+        <div class="metric-card">
+          <span class="m-val">900+</span>
+          <span class="m-lab" data-i18n="successDeals">сделок</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass-panel">
+      <h2 data-i18n="contacts">Контакты</h2>
+      <a href="https://t.me/nozwa" class="link-item">
+        <span data-i18n="dmTitle">Личные сообщения</span>
+        <span style="color: var(--neon-blue)">@nozwa</span>
+      </a>
+      <a href="https://t.me/HatovskiyNews" class="link-item">
+        <span data-i18n="mainChannel">Новостной канал</span>
+        <span>→</span>
+      </a>
+      <a href="https://t.me/NozwaScamBase" class="link-item">
+        <span>NozwaBase</span>
+        <span>→</span>
+      </a>
+    </div>
+
+    <div class="glass-panel">
+      <h2 data-i18n="info">Оплата</h2>
+      <p class="copy-hint">TON (Click to copy):</p>
+      <div class="copy-box" onclick="copyAddress('chelsy-rich.ton')">
+        <span class="wallet-addr">chelsy-rich.ton</span>
+        <span style="font-size: 0.7rem; color: var(--accent);">COPY</span>
+      </div>
+    </div>
+
+    <div class="glass-panel">
+      <h2 data-i18n="how">Как проходит сделка</h2>
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <h3 data-i18n="step1Title">Реквизиты</h3>
+          <p data-i18n="step1Text">Продавец дает свои реквизиты покупателю.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <h3 data-i18n="step2Title">Передача</h3>
+          <p data-i18n="step2Text">Продавец передает товар гаранту на проверку.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <h3 data-i18n="step3Title">Выплата</h3>
+          <p data-i18n="step3Text">Покупатель оплачивает, гарант выдает товар.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Логика переводов из твоего app.js
+    const translations = {
+      ru: {
+        title: '𝑪𝒉𝒆𝒍𝒔𝒚 𝒓𝒊𝒄𝒉',
+        subtitle: '👑 @hatovskiy – гарантия честных и безопасных сделок!',
+        successDeals: 'успешных сделок',
+        commission: 'комиссия за сделку',
+        info: 'Информация',
+        contacts: 'Контакты и сообщества',
+        dmTitle: 'Личные сообщения',
+        mainChannel: 'Новостной канал',
+        how: 'Как проходит сделка',
+        step1Title: 'Передача реквизитов',
+        step1Text: 'ПРОДАВЕЦ даёт свои реквизиты ПОКУПАТЕЛЮ.',
+        step2Title: 'Передача актива',
+        step2Text: 'ПРОДАВЕЦ передаёт мне товар. Я подтверждаю получение.',
+        step3Title: 'Оплата и выдача',
+        step3Text: 'ПОКУПАТЕЛЬ переводит деньги, после чего получает товар.'
+      },
+      en: {
+        title: '𝑪𝒉𝒆𝒍𝒔𝒚 𝒓𝒊𝒄𝒉',
+        subtitle: '👑 @hatovskiy – guaranteed honest and safe deals!',
+        successDeals: 'successful deals',
+        commission: 'deal commission',
+        info: 'Information',
+        contacts: 'Contacts & Community',
+        dmTitle: 'Direct Messages',
+        mainChannel: 'News Channel',
+        how: 'How it works',
+        step1Title: 'Details exchange',
+        step1Text: 'SELLER provides payment details to the BUYER.',
+        step2Title: 'Asset transfer',
+        step2Text: 'SELLER transfers the asset to me for verification.',
+        step3Title: 'Payment & Release',
+        step3Text: 'BUYER pays the seller, then receives the asset.'
+      }
+    };
+
+    const langSwitch = document.getElementById('langSwitch');
+    const langBtns = document.querySelectorAll('.lang-btn');
+    const elements = document.querySelectorAll('[data-i18n]');
+
+    function setLanguage(lang) {
+      elements.forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      langBtns.forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+      document.getElementById('copy-toast').textContent = lang === 'ru' ? 'Скопировано!' : 'Copied!';
+    }
+
+    langSwitch.addEventListener('click', (e) => {
+      const btn = e.target.closest('.lang-btn');
+      if (!btn) return;
+      setLanguage(btn.dataset.lang);
+    });
+
+    // Функция копирования
+    function copyAddress(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('copy-toast');
+        toast.style.opacity = '1';
+        setTimeout(() => toast.style.opacity = '0', 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
