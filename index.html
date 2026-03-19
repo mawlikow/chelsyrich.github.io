@@ -4,6 +4,17 @@
   <meta charset="UTF-8">
   <title>Chelsy rich | Guarantor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23080b12'/><text y='.9em' font-size='75' x='12' fill='%2300c6ff' font-family='serif' font-weight='bold'>C</text></svg>">
+  <meta name="description" content="Chelsy Rich — надёжный гарант сделок. 6% комиссия, 900+ успешных сделок. Telegram: @nozwa">
+  <meta property="og:title" content="Chelsy Rich | Guarantor">
+  <meta property="og:description" content="Надёжный гарант сделок. 6% комиссия, 900+ успешных сделок.">
+  <meta property="og:image" content="https://chelsy.com/ava.jpg">
+  <meta property="og:url" content="https://chelsy.com">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Chelsy Rich | Guarantor">
+  <meta name="twitter:description" content="Надёжный гарант сделок. 6% комиссия, 900+ успешных сделок.">
+  <meta name="twitter:image" content="https://chelsy.com/ava.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -159,6 +170,16 @@
       font-size: 0.9rem;
     }
     .link-item:hover { transform: translateX(4px); background: rgba(255,255,255,0.05); }
+    .link-item--primary {
+      background: rgba(0, 122, 255, 0.12);
+      border-color: rgba(0, 122, 255, 0.45);
+      box-shadow: 0 0 16px rgba(0, 122, 255, 0.18);
+    }
+    .link-item--primary:hover {
+      background: rgba(0, 122, 255, 0.2);
+      box-shadow: 0 0 24px rgba(0, 122, 255, 0.3);
+    }
+    .link-item-left { display: flex; align-items: center; gap: 10px; }
 
    
     .copy-box {
@@ -185,10 +206,11 @@
     h2 { font-size: 1.1rem; margin-bottom: 12px; }
 
     .step-item { display: flex; gap: 12px; margin-bottom: 15px; }
-    .step-num { 
-      width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--neon-blue); 
-      display: flex; align-items: center; justify-content: center; font-weight: 800; 
-      color: var(--neon-blue); flex-shrink: 0; font-size: 0.8rem;
+    .step-num {
+      width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--neon-blue);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--neon-blue); flex-shrink: 0;
+      background: rgba(0, 198, 255, 0.07);
     }
     .step-text h3 { font-size: 0.95rem; margin-bottom: 3px; }
     .step-text p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
@@ -229,9 +251,12 @@
 
     <div class="glass-panel">
       <h2 data-i18n="contacts">Контакты</h2>
-      <a href="https://t.me/nozwa" class="link-item">
-        <span data-i18n="dmTitle">Личные сообщения</span>
-        <span style="color: var(--neon-blue)">@nozwa</span>
+      <a href="https://t.me/nozwa" class="link-item link-item--primary">
+        <span class="link-item-left">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.93 6.702l-1.692 7.976c-.127.566-.463.703-.937.437l-2.59-1.908-1.25 1.203c-.138.138-.254.254-.521.254l.186-2.64 4.81-4.344c.21-.186-.046-.29-.323-.104L8.034 14.57l-2.552-.797c-.555-.174-.566-.555.116-.822l9.877-3.808c.462-.168.866.112.717.822-.001 0-.263-.001-.262-.263z" fill="%2300c6ff"/></svg>
+          <span data-i18n="dmTitle">Личные сообщения</span>
+        </span>
+        <span style="color: var(--neon-blue); font-weight: 700;">@nozwa</span>
       </a>
       <a href="https://t.me/HatovskiyNews" class="link-item">
         <span data-i18n="mainChannel">Новостной канал</span>
@@ -255,21 +280,27 @@
     <div class="glass-panel">
       <h2 data-i18n="how">Как проходит сделка</h2>
       <div class="step-item">
-        <div class="step-num">1</div>
+        <div class="step-num">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg>
+        </div>
         <div class="step-text">
           <h3 data-i18n="step1Title">Реквизиты</h3>
           <p data-i18n="step1Text">Продавец дает свои реквизиты покупателю.</p>
         </div>
       </div>
       <div class="step-item">
-        <div class="step-num">2</div>
+        <div class="step-num">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-1-5H4L3 8"/><path d="M3 8h18v13a1 1 0 01-1 1H4a1 1 0 01-1-1V8z"/><path d="M9 8v4m6-4v4"/></svg>
+        </div>
         <div class="step-text">
           <h3 data-i18n="step2Title">Передача</h3>
           <p data-i18n="step2Text">Продавец передает товар гаранту на проверку.</p>
         </div>
       </div>
       <div class="step-item">
-        <div class="step-num">3</div>
+        <div class="step-num">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
         <div class="step-text">
           <h3 data-i18n="step3Title">Выплата</h3>
           <p data-i18n="step3Text">Покупатель оплачивает, гарант выдает товар.</p>
@@ -331,6 +362,7 @@
       });
       langBtns.forEach(btn => btn.classList.remove('active'));
       document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+      document.documentElement.lang = lang;
       document.getElementById('copy-toast').textContent = lang === 'ru' ? 'Скопировано!' : 'Copied!';
     }
 
